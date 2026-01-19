@@ -10,7 +10,9 @@ interface SignatureFormProps {
   onInputChange: (field: keyof SignatureFormData, value: string) => void;
   onClearField: (field: keyof SignatureFormData) => void;
   onLogoUpload: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onLogoUrlChange: (url: string) => void;
   fileInputRef: RefObject<HTMLInputElement | null>;
+  isCompressing?: boolean;
 }
 
 export function SignatureForm({
@@ -18,6 +20,7 @@ export function SignatureForm({
   onInputChange,
   onClearField,
   onLogoUpload,
+  onLogoUrlChange,
   fileInputRef,
 }: SignatureFormProps) {
   return (
@@ -90,6 +93,7 @@ export function SignatureForm({
           <LogoUpload
             logoUrl={formData.logoUrl}
             onUpload={onLogoUpload}
+            onUrlChange={onLogoUrlChange}
             onClear={() => onClearField("logoUrl")}
             fileInputRef={fileInputRef}
           />

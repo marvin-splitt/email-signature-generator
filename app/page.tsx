@@ -9,10 +9,14 @@ export default function Home() {
     handleInputChange,
     clearField,
     handleLogoUpload,
+    handleLogoUrlChange,
     fileInputRef,
     copyToClipboard,
     copied,
     hasContent,
+    isCompressing,
+    signatureSize,
+    isOverLimit,
   } = useSignatureForm();
 
   return (
@@ -34,7 +38,9 @@ export default function Home() {
             onInputChange={handleInputChange}
             onClearField={clearField}
             onLogoUpload={handleLogoUpload}
+            onLogoUrlChange={handleLogoUrlChange}
             fileInputRef={fileInputRef}
+            isCompressing={isCompressing}
           />
 
           <PreviewSection
@@ -42,6 +48,8 @@ export default function Home() {
             hasContent={hasContent}
             onCopy={copyToClipboard}
             copied={copied}
+            signatureSize={signatureSize}
+            isOverLimit={isOverLimit}
           />
         </div>
       </div>
